@@ -1,0 +1,18 @@
+# First Container
+apiVersion: v1
+kind: pod
+metadata:
+  name: Multi-Container
+  #namespace: roboshop # Here we are creating in default namespace.So commented namespace.
+spec:
+  # list of containers
+  # First Container
+  containers:
+  - name: hello-pod
+    image: nginx
+    ports:
+    - containerPort: 80
+  # Second Container
+  - name: almalinux
+    image: almalinux:8 # This Alma linux will fail obviously when container fail. So we give command to run for some time.
+    command: ["sleep","300"] #This container will run for 300 seconds and will exit
