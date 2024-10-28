@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: devops-config
 data:
-  course: devops-configmap #Here we have given key-value pairs.Now to define this config in pod
-  trainer: SivaKumar
+  course: DevOps #Here we have given key-value pairs.Now to define this config in pod
+  trainer: "SivaKumar"
 
 
 
