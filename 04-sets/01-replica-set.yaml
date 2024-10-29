@@ -15,6 +15,7 @@ spec:
   template: # pod template
     metadata:
       labels:
+        app: nginx
         tier: frontend
     spec:
       containers:
