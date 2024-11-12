@@ -8,7 +8,7 @@ spec:
   storageClassName: ebs-storageclass
   resources:
     requests:
-      storage: 5Gi  # PV is only 10GB. So we can claim 10GB or less, but not more
+      storage: 4Gi
 ---
 apiVersion: v1
 kind: Pod
@@ -22,16 +22,15 @@ spec:
     image: nginx
     volumeMounts:
     - name: nginx-data
-      mountPath: /usr/share/nginx/html  # where we have to mount
+      mountPath: /usr/share/nginx/html
   nodeSelector:
-    zone: 1a    
+    zone: 1a
   volumes:
   - name: nginx-data
     persistentVolumeClaim:
       claimName: ebs-dynamic
 ---
-#Adding Service.
-apiVersion: v1  # if we did not specify anything, type will be clusterIP.
+apiVersion: v1
 kind: Service
 metadata:
   name: ebs-dynamic
@@ -40,7 +39,6 @@ spec:
   selector:
     demo: ebs-static
   ports:
-    - protocol: TCP
-      port: 80 # service port
-      targetPort: 80 #container port
-
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #container-port
