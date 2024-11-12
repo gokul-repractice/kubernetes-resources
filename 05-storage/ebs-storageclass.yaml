@@ -1,4 +1,6 @@
-#This will be created by administrator.
+#This will be created by administrator
+#Once created, they will inform all the engineers,that we have EBS storage class created for dynamic provisioning
+#So, projects can create olumes dynamically according to their requirement
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
